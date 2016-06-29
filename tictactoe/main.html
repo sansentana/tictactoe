@@ -1,0 +1,29 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet" type="text/css">
+  <title>tictactoe</title>
+</head>
+
+<body>
+  <h1>Welcome to tictactoe!</h1>
+  {{> gameboard}}
+</body>
+
+<template name="gameboard">
+  {{#if winner}}
+    <p>
+      And the winner is {{winner}}
+    </p>
+  {{/if}}
+  <div class="gameboard">
+  {{#each boxes}}
+  {{> box}}
+  {{/each}}
+  </div>
+  <button class="reset-game" type="button">Reset game</button>
+  </template>
+
+  <template name="box">
+    <div class="box {{#if disabled}} disabled {{/if}}">
+      {{player}}
+    </div>
+</template>
